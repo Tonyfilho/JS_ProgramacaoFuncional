@@ -68,8 +68,8 @@ export class MapComponent implements OnInit {
       { product: { id: 2, nome: 'banana' }, quantity: 5 },
     ],
   };
-  /**Criando uma COPIA do Objeto, não mais uma Referencia do objeto acima */
-  shoppingSpread = {...this.shoppingCart};
+  /**Criando uma COPIA do Objeto, não mais uma Referencia do objeto acima e ja modifico o Objeto */
+  shoppingSpread = {...this.shoppingCart, user: { id: 1, nome: `Antonio Filho`}, itens:[{product:{id: 1, nome:'goiaba'}}]};
     constructor() {}
 
   ngOnInit(): void {
@@ -81,6 +81,9 @@ export class MapComponent implements OnInit {
     console.groupEnd();
     console.group('Formantando Objetos REDUCE e SPREAD');
     console.log(formataObjetoReduceSpread(this.shoppingCart));
+    console.groupEnd();
+    console.group('Formantando Objetos somente com SPREAD');
+    console.log(this.shoppingSpread, this.shoppingCart);
     console.groupEnd();
   }
 }
